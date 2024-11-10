@@ -27,18 +27,26 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 - Academic Projects
 
 ## What CDK resources will this package contain?
-- ECS based web-server written in Rust
-- Application load balancer that routes requests to the web server
-- DNS config for website
+- Lambda-based APIs written in Rust
+- API Gateway with Rest APIs to implement API management features like request validation, per client API throttling
+- Dynamo DB to store contents of the resume
 - S3 bucket that contains static web assets
 
-DNS -> Amazon Route53 -> Origin (S3 bucket that contains web assets) -> calls ECS server written in Rust
+
+### Flow:
+DNS -> Amazon Route53 -> Origin (S3 bucket that contains web assets) -> calls API Gateway -> Lambda-based APIs written in Rust
+
+UI -> API Gateway -> Lambdas to get various sections of resume data
+
+### Pipelines
+The AWS account will have 2 CodePipelineV2 entities:
+1. Contains the website code, stored in a S3  bucket
+2. Contains API Gateway and the Lambda APIs
 
 ## Useful commands
 
 * `npm run build`   compile typescript to js
 * `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+* `cdk deploy`  deploy this stack to your default AWS account/region
+* `cdk diff`    compare deployed stack with current state
+* `cdk synth`   emits the synthesized CloudFormation template

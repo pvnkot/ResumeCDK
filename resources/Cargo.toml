@@ -1,0 +1,19 @@
+[package]
+authors = ["pvnkot"]
+edition = "2021"
+name = "resources"
+version = "1.0.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+aws_lambda_events = "0.15"
+lambda_runtime = "0.12"
+log = "0.4"
+serde_json = "1.0"
+simple_logger = "5.0.0"
+tokio = {version = "1.38.0", features = ["full"]}
+
+[[bin]]
+name = "bootstrap"
+path = "src/main.rs"
