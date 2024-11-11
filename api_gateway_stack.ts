@@ -1,4 +1,4 @@
-import { ApiStack } from "api_stack";
+import { ApiStack } from "./api_stack";
 import { App, Stack, StackProps } from "aws-cdk-lib";
 import { IResource, LambdaIntegration, MockIntegration, PassthroughBehavior, RestApi } from "aws-cdk-lib/aws-apigateway";
 

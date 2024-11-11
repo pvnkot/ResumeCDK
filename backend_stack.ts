@@ -1,4 +1,4 @@
-import { ApiGatewayStack } from "api_gateway_stack";
+import { ApiGatewayStack } from "./api_gateway_stack";
 import { App, Stack, StackProps } from "aws-cdk-lib";
 import { RestApi } from "aws-cdk-lib/aws-apigateway";
 
