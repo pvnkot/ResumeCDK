@@ -2,7 +2,7 @@
 
 This project contains the CDK resources that will be used to build my personal website
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+The `cdk.json` file tells the CDK Toolkit how to execute my app.
 
 ## What sections will the resume page contain?
 - Technical Skills
@@ -30,7 +30,6 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 - Lambda-based APIs written in Rust
 - API Gateway with Rest APIs to implement API management features like request validation, per client API throttling
 - Dynamo DB to store contents of the resume
-- S3 bucket that contains static web assets
 
 
 ### Flow:
@@ -39,8 +38,8 @@ DNS -> Amazon Route53 -> Origin (S3 bucket that contains web assets) -> calls AP
 UI -> API Gateway -> Lambdas to get various sections of resume data
 
 ### Pipelines
-The AWS account will have 2 CodePipelineV2 entities:
-1. Contains the website code, stored in a S3  bucket
+The plan is to have this AWS account contain 2 CodePipelineV2 entities:
+1. Deploys the website code, stored in a S3 bucket
 2. Contains API Gateway and the Lambda APIs
 
 ## Useful commands
