@@ -16,7 +16,7 @@ async fn function_handler(event: LambdaEvent<Request>) -> Result<Response, Error
     // Extract some useful info from the request
     let quote = event.payload.quote;
 
-    let msg = format!("{}.", quote);
+    let msg = format!("{}....", quote);
 
     // Return `Response` (it will be serialized to JSON automatically by the runtime)
     Ok(Response {
