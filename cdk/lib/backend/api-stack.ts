@@ -1,10 +1,11 @@
-import * as cdk from 'aws-cdk-lib';
+import 'module-alias/register';
+import { Stack, StackProps, Duration } from 'aws-cdk-lib';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 import { RustFunction } from 'cargo-lambda-cdk';
 
-export class ApiStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+export class ApiStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
     const architecture = lambda.Architecture.ARM_64;
@@ -16,7 +17,7 @@ export class ApiStack extends cdk.Stack {
       manifestPath: '..', // Points to the parent directory where Cargo.toml is located
       architecture,
       memorySize: 128,
-      timeout: cdk.Duration.seconds(30),
+      timeout: Duration.seconds(30),
     });
   }
 }
